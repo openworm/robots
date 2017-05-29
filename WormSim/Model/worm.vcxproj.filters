@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_band.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_bbdpre.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_dense.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_ic.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_io.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spbcgs.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spgmr.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spils.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_sptfqmr.c">
+      <Filter>sundials\src\ida</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_band.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_dense.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_iterative.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_math.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_nvector.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_smalldense.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_spbcgs.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_spgmr.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_sptfqmr.c">
+      <Filter>sundials\src\sundials</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\nvec_ser\fnvector_serial.c">
+      <Filter>sundials\src\nvec_ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sundials-2.3.0\src\nvec_ser\nvector_serial.c">
+      <Filter>sundials\src\nvec_ser</Filter>
+    </ClCompile>
+    <ClCompile Include="gettime.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="wormsim.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sundials">
+      <UniqueIdentifier>{6d4ffd2f-3a1e-410d-810b-95dc629d1e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\include">
+      <UniqueIdentifier>{2c6c2e38-20cf-4c54-8cb0-8d8ac941bed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\include\ida">
+      <UniqueIdentifier>{8402d2d4-bb8d-4cb6-bfca-5fbf404dd33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\include\nvector">
+      <UniqueIdentifier>{9d936177-6fae-46c1-95c0-e29ad970ff8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\include\sundials">
+      <UniqueIdentifier>{bcdbdc88-27cd-402b-9017-8281079a5aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\src">
+      <UniqueIdentifier>{36f28657-aba2-410c-9f6c-d9462846ae8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\src\ida">
+      <UniqueIdentifier>{3d093dba-f096-40d7-bdde-1af0aeb99b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\src\sundials">
+      <UniqueIdentifier>{074f1bd0-948f-4c3f-992f-fdf9422ac61e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sundials\src\nvec_ser">
+      <UniqueIdentifier>{2a5efc94-705c-4154-814b-6f11ad1e434e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_band.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_bbdpre.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_dense.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spbcgs.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spgmr.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spils.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_sptfqmr.h">
+      <Filter>sundials\include\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\nvector\nvector_parallel.h">
+      <Filter>sundials\include\nvector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\nvector\nvector_serial.h">
+      <Filter>sundials\include\nvector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_band.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_dense.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_fnvector.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_iterative.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_math.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_nvector.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_smalldense.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_spbcgs.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_spgmr.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_sptfqmr.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_types.h">
+      <Filter>sundials\include\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_band_impl.h">
+      <Filter>sundials\src\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_bbdpre_impl.h">
+      <Filter>sundials\src\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_dense_impl.h">
+      <Filter>sundials\src\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_impl.h">
+      <Filter>sundials\src\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_spils_impl.h">
+      <Filter>sundials\src\ida</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\sundials\sundials_config.h">
+      <Filter>sundials\src\sundials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sundials-2.3.0\src\nvec_ser\fnvector_serial.h">
+      <Filter>sundials\src\nvec_ser</Filter>
+    </ClInclude>
+    <ClInclude Include="gettime.h" />
+    <ClInclude Include="wormsim.h" />
+  </ItemGroup>
+</Project>

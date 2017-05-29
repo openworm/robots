@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}</ProjectGuid>
+    <RootNamespace>worm</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\tompo_000\Anaconda\include;..\sundials-2.3.0\src\ida;..\sundials-2.3.0\include;..\sundials-2.3.0\src;$(IncludePath)</IncludePath>
+    <TargetName>_$(ProjectName)</TargetName>
+    <TargetExt>.pyd</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\tompo_000\Anaconda\include;..\sundials-2.3.0\src\ida;..\sundials-2.3.0\include;..\sundials-2.3.0\src;$(IncludePath)</IncludePath>
+    <TargetName>_$(ProjectName)</TargetName>
+    <TargetExt>.pyd</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\tompo_000\Anaconda\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\tompo_000\Anaconda\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_band.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_bbdpre.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_dense.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_ic.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_io.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spbcgs.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spgmr.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_spils.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\ida\ida_sptfqmr.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\nvec_ser\fnvector_serial.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\nvec_ser\nvector_serial.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_band.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_dense.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_iterative.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_math.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_nvector.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_smalldense.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_spbcgs.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_spgmr.c" />
+    <ClCompile Include="..\sundials-2.3.0\src\sundials\sundials_sptfqmr.c" />
+    <ClCompile Include="gettime.cpp" />
+    <ClCompile Include="wormsim.cpp" />
+    <ClCompile Include="wormpy_wrap.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_band.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_bbdpre.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_dense.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spbcgs.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spgmr.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_spils.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\ida\ida_sptfqmr.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\nvector\nvector_parallel.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\nvector\nvector_serial.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_band.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_dense.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_fnvector.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_iterative.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_math.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_nvector.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_smalldense.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_spbcgs.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_spgmr.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_sptfqmr.h" />
+    <ClInclude Include="..\sundials-2.3.0\include\sundials\sundials_types.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_band_impl.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_bbdpre_impl.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_dense_impl.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_impl.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\ida\ida_spils_impl.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\nvec_ser\fnvector_serial.h" />
+    <ClInclude Include="..\sundials-2.3.0\src\sundials\sundials_config.h" />
+    <ClInclude Include="gettime.h" />
+    <ClInclude Include="wormsim.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="wormpy.i">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\tompo_000\swigwin-3.0.12\swig.exe -c++ -python -outdir $(Outdir) %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)_wrap.cxx;$(Outdir)%(Filename).py</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\tompo_000\swigwin-3.0.12\swig.exe -c++ -python -outdir $(Outdir) %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)_wrap.cxx;$(Outdir)%(Filename).py</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="worm_test.py" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "worm", "worm.vcxproj", "{D3961D3B-41CA-473E-A164-D1B9885B49F5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wormpy", "wormpy.vcxproj", "{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3961D3B-41CA-473E-A164-D1B9885B49F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3961D3B-41CA-473E-A164-D1B9885B49F5}.Debug|Win32.Build.0 = Debug|Win32
+		{D3961D3B-41CA-473E-A164-D1B9885B49F5}.Release|Win32.ActiveCfg = Release|Win32
+		{D3961D3B-41CA-473E-A164-D1B9885B49F5}.Release|Win32.Build.0 = Release|Win32
+		{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}.Debug|Win32.Build.0 = Debug|Win32
+		{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}.Release|Win32.ActiveCfg = Release|Win32
+		{97EE3811-B4B3-4193-8B21-123EE2EBD2C3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
