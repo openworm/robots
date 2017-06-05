@@ -13,6 +13,7 @@ int step();
 float get_dorsal_muscle_activation(int segment);
 float get_ventral_muscle_activation(int segment);
 void term();
-void turn(float amplifier);
+void amplify_forward(float amplifier);
+void amplify_turn(float amplifier);
 
 

@@ -137,6 +137,10 @@ static void PrintFinalStats(void *mem);
 static int check_flag(void *flagvalue, char *funcname, int opt);
 double randn(double mu, double sigma);
 
+// Amplified neuron and muscle states.
+realtype V_muscle_amplified[NSEG][2];
+realtype V_neuron_amplified[NSEG][2];
+
 // Muscle activations.
 float dorsal_muscle_activations[12];
 float ventral_muscle_activations[12];
@@ -157,9 +161,16 @@ TIME LogTimer;
 TIME LogLast;
 FILE *LogFp;
 
+// Motor neuron forward amplifier.
+float Activation_amplifier = 1.0f;
+void amplify_forward(float amplifier)
+{
+	Activation_amplifier = amplifier;
+}
+
 // Motor neuron turn amplifier.
 float Turn_amplifier = 1.0f;
-void turn(float amplifier)
+void amplify_turn(float amplifier)
 {
   Turn_amplifier = amplifier;
 }
@@ -429,8 +440,8 @@ int step()
 		float d = 0.0f;
 		float v = 0.0f;
 		for (int j = 0; j < 4; j++) {
-			d += V_muscle[i + j][0];
-			v += V_muscle[i + j][1];
+			d += V_muscle_amplified[i + j][0];
+			v += V_muscle_amplified[i + j][1];
 		}
 		d /= 4.0f;
 		v /= 4.0f;
@@ -588,7 +599,7 @@ void term()
    	float I_V[N_units];    
 
    	// Current bias to compensate for the fact that neural inhibition only goes one way
-   	float I_bias = 0.8;
+   	float I_bias = 0.8f;
 
 	// Combine AVB current, stretch receptor current, neural inhibition and bias
    	for(int i = 0; i < N_units; ++i){
@@ -625,20 +636,39 @@ void term()
    	for(int i = 0; i < NSEG; ++i){		
 		V_neuron[i][0] = NMJ_weight[i]*State[(int)(i*N_units/NSEG)][0] - NMJ_weight[i]*State[(int)(i*N_units/NSEG)][1];
 		V_neuron[i][1] = NMJ_weight[i]*State[(int)(i*N_units/NSEG)][1] - NMJ_weight[i]*State[(int)(i*N_units/NSEG)][0];	
-   	} 
+   	}
 	
-	// Incorporate turn amplifier?
+	// Create shadow neuron states.
+	for (int i = 0; i < NSEG; i++)
+	{
+		V_neuron_amplified[i][0] = V_neuron[i][0];
+		V_neuron_amplified[i][1] = V_neuron[i][1];
+	}
+
+	// Incorporate activation amplifier.
+	if (Activation_amplifier != 1.0f)
+	{
+		float a = Activation_amplifier;
+		for (int i = 0; i < NSEG; i++)
+		{
+			V_neuron_amplified[i][1] *= a;
+			V_neuron_amplified[i][0] *= a;
+		}
+	}
+
+	// Incorporate turn amplifier.
 	if (Turn_amplifier != 1.0f)
 	{
-		for (int i = 0; i < 48; i++)
+		float a = Turn_amplifier;
+		for (int i = 0; i < NSEG; i++)
 		{
-			if (V_neuron[i][1] > 0.0f)
+			if (V_neuron_amplified[i][1] > 0.0f)
 			{
-				V_neuron[i][1] *= Turn_amplifier;
-				V_neuron[i][0] = -V_neuron[i][1];
+				V_neuron_amplified[i][1] *= a;
+				V_neuron_amplified[i][0] = -V_neuron_amplified[i][1];
 			}
 			else {
-				V_neuron[i][1] = -V_neuron[i][0];
+				V_neuron_amplified[i][1] = -V_neuron_amplified[i][0];
 			}
 		}
 	}
@@ -650,7 +680,7 @@ void term()
    	for(int i = 0; i < NSEG; ++i){
 		// Bilinear SR function on one side to compensate for asymmetry and help worm go straight
 		I_SR[i][0] = SR_shape_compensation[i]*((L_SR[i][0] - L0_P[i])/L0_P[i]*((L_SR[i][0] > L_seg) ? 0.8:1.2));
-		I_SR[i][1] = SR_shape_compensation[i]*((L_SR[i][1] - L0_P[i])/L0_P[i]);
+		I_SR[i][1] = SR_shape_compensation[i] * ((L_SR[i][1] - L0_P[i]) / L0_P[i]);
    	}
   }
 
@@ -659,8 +689,11 @@ void term()
   	//Muscle transfer function is just a simple LPF
   	for(int i = 0; i < NSEG; ++i){
 		for(int j = 0; j < 2; ++j){
+			V_muscle_amplified[i][j] = V_muscle[i][j];
 			realtype dV = (V_neuron[i][j] - V_muscle[i][j])/T_muscle;
 			V_muscle[i][j] += dV*DELTAT;
+			dV = (V_neuron_amplified[i][j] - V_muscle_amplified[i][j]) / T_muscle;
+			V_muscle_amplified[i][j] += dV*DELTAT;
 		}
   	}
   }
