@@ -473,7 +473,6 @@ int step()
 
 		if (LogTimer >= LOG_DURATION_MS)
 		{
-			fclose(LogFp);
 			return 0;
 		}
 #else
@@ -638,7 +637,7 @@ void term()
 		V_neuron[i][1] = NMJ_weight[i]*State[(int)(i*N_units/NSEG)][1] - NMJ_weight[i]*State[(int)(i*N_units/NSEG)][0];	
    	}
 	
-	// Create shadow neuron states.
+	// Create amplifier neuron states.
 	for (int i = 0; i < NSEG; i++)
 	{
 		V_neuron_amplified[i][0] = V_neuron[i][0];
