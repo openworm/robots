@@ -141,6 +141,14 @@ double randn(double mu, double sigma);
 realtype V_muscle_amplified[NSEG][2];
 realtype V_neuron_amplified[NSEG][2];
 
+// Segment angles.
+#define SEGMENT_ANGLE_SCALE 0.5
+float segment_angles[12];
+float get_segment_angle(int segment)
+{
+	return segment_angles[segment];
+}
+
 // Muscle activations.
 float dorsal_muscle_activations[12];
 float ventral_muscle_activations[12];
@@ -434,6 +442,18 @@ int step()
       	iout++;
       	tout += DELTAT;
     }
+
+	// Publish segment angles.
+	for (int i = 0; i < NSEG; i += 4) {
+		float a = 0.0f;
+		for (int j = 0; j < 4; j++) {
+			a += ((yval[i * 3 + 2] * (180.0 / M_PI)) - 90.0);
+		}
+		a /= 4.0f;
+		a *= SEGMENT_ANGLE_SCALE;
+		a = (float)((int)(a * 1000.0) / 1000);
+		segment_angles[i / 4] = a;
+	}
 
 	// Publish muscle activations.
 	for (int i = 0; i < NSEG; i += 4) {

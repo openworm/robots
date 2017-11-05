@@ -2,6 +2,7 @@
 int init();
 int init_test();
 int step();
+float get_segment_angle(int segment);
 float get_dorsal_muscle_activation(int segment);
 float get_ventral_muscle_activation(int segment);
 void term();

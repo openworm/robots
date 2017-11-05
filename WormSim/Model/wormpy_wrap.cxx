@@ -3377,6 +3377,28 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_get_segment_angle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:get_segment_angle",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "get_segment_angle" "', argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  result = (float)get_segment_angle(arg1);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_get_dorsal_muscle_activation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
@@ -3433,20 +3455,41 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_turn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_amplify_forward(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   float arg1 ;
   float val1 ;
   int ecode1 = 0 ;
   PyObject * obj0 = 0 ;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:turn",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:amplify_forward",&obj0)) SWIG_fail;
   ecode1 = SWIG_AsVal_float(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "turn" "', argument " "1"" of type '" "float""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "amplify_forward" "', argument " "1"" of type '" "float""'");
   } 
   arg1 = static_cast< float >(val1);
-  turn(arg1);
+  amplify_forward(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_amplify_turn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  float arg1 ;
+  float val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:amplify_turn",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_float(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "amplify_turn" "', argument " "1"" of type '" "float""'");
+  } 
+  arg1 = static_cast< float >(val1);
+  amplify_turn(arg1);
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
@@ -3459,10 +3502,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"init", _wrap_init, METH_VARARGS, NULL},
 	 { (char *)"init_test", _wrap_init_test, METH_VARARGS, NULL},
 	 { (char *)"step", _wrap_step, METH_VARARGS, NULL},
+	 { (char *)"get_segment_angle", _wrap_get_segment_angle, METH_VARARGS, NULL},
 	 { (char *)"get_dorsal_muscle_activation", _wrap_get_dorsal_muscle_activation, METH_VARARGS, NULL},
 	 { (char *)"get_ventral_muscle_activation", _wrap_get_ventral_muscle_activation, METH_VARARGS, NULL},
 	 { (char *)"term", _wrap_term, METH_VARARGS, NULL},
-	 { (char *)"turn", _wrap_turn, METH_VARARGS, NULL},
+	 { (char *)"amplify_forward", _wrap_amplify_forward, METH_VARARGS, NULL},
+	 { (char *)"amplify_turn", _wrap_amplify_turn, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
