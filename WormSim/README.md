@@ -22,17 +22,17 @@ Installation guide:
 
 4) Go to sundials-2.3.0 directory, configure & make:
 
-    cd sundials-2.3.0
-    ./configure CC=g++ --prefix=$idaInstallDir --disable-mpi --disable-fcmix
-    make
-    make install
+    cd sundials-2.3.0<br>
+    ./configure CC=g++ --prefix=$idaInstallDir --disable-mpi --disable-fcmix <br>
+    make <br>
+    make install<br>
 
 5) Look carefully at the resulting output and check for any error messages (there shouldn't be any...). Fix and repeat step 4 if necessary.  An error you may see will indicate 'machine \'make\' not recognized'.  This means that your build (and potentially host) machine are not set correctly for configure.  If this is the case, and assuming you are running a 64-bit, x86 processor, try running the following commands instead:
 
-    cd sundials-2.3.0
-    ./configure CC=g++ --build=x86_64 --host=x86_64 --prefix=$idaInstallDir --disable-mpi --disable-fcmix
-    make
-    make install
+    cd sundials-2.3.0<br>
+    ./configure CC=g++ --build=x86_64 --host=x86_64 --prefix=$idaInstallDir --disable-mpi --disable-fcmix<br>
+    make<br>
+    make install<br>
     
 6) You should now be able to proceed to running the simulator.
 
@@ -58,10 +58,10 @@ in another language by examining the code and translating it as appropriate.
 
 9) Summary:
 
-    cd ../Model
-    make
-    ./program
-    cd ../MatlabSupport
-    matlab WormView.m
+    cd ../Model<br>
+    make<br>
+    ./program<br>
+    cd ../MatlabSupport<br>
+    matlab WormView.m<br>
 
 10) WormView has the option of exporting all of the frames of your simulation as jpg files (in order to stitch them together to make a video), but it requires the export_fig package available here: (https://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig).  
