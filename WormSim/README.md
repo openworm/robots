@@ -27,8 +27,13 @@ Installation guide:
     make
     make install
 
-5) Look carefully at the resulting output and check for any error messages (there shouldn't be any...). Fix and repeat step 4 if necessary.
+5) Look carefully at the resulting output and check for any error messages (there shouldn't be any...). Fix and repeat step 4 if necessary.  An error you may see will indicate 'machine \'make\' not recognized'.  This means that your build (and potentially host) machine are not set correctly for configure.  If this is the case, and assuming you are running a 64-bit, x86 processor, try running the following commands instead:
 
+    cd sundials-2.3.0
+    ./configure CC=g++ --build=x86_64 --host=x86_64 --prefix=$idaInstallDir --disable-mpi --disable-fcmix
+    make
+    make install
+    
 6) You should now be able to proceed to running the simulator.
 
 ### Usage guide:
@@ -46,7 +51,7 @@ Installation guide:
 6) "program" will generate a file called "simdata.csv", and possibly also "objects.csv" (if objects are being used).
 
 7) Open the appropriate [viewer program](https://github.com/OpenSourceBrain/CelegansNeuromechanicalGaitModulation/blob/master/WormSim/MatlabSupport/WormView.m), found in "WormSim/MatlabSupport/", 
-in Matlab. If you don't have access to Matlab, try [Octave](https://www.gnu.org/software/octave/it), or should be possible to reproduce this viewer 
+in Matlab. If you don't have access to Matlab, [Octave](https://www.gnu.org/software/octave/it) will work, or should be possible to reproduce this viewer 
 in another language by examining the code and translating it as appropriate.
 
 8) Run the viewer to visualize the model behaviour.
@@ -59,4 +64,4 @@ in another language by examining the code and translating it as appropriate.
     cd ../MatlabSupport
     matlab WormView.m
 
-
+10) WormView has the option of exporting all of the frames of your simulation as jpg files (in order to stitch them together to make a video), but it requires the export_fig package available here: (https://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig).  
