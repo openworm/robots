@@ -15,7 +15,7 @@ end
 
 Sz = size(data);
 Nt = round(Sz(1));              
-Dt = data(2,1) - data(1,1);
+Dt = (data(2,1) - data(1,1))
 Duration = data(end,1);
 
 Nbar = (Sz(2)-1)/3;
@@ -106,7 +106,9 @@ for i = 1:Nt
     set(gca,'xticklabel','','yticklabel','','ytick',[],'xtick',[])    
     xlim([plotMinX plotMaxX])
     ylim([plotMinY plotMaxY])    
-    set(gcf,'paperpositionmode','auto')    
+    set(gcf,'paperpositionmode','auto')   
+    DataTitle = ['Time: ',num2str(i*Dt),'s of: ',num2str(Nt*Dt),'s'];
+    title(DataTitle);
     pause(Dt)
     hold off
     
