@@ -2,7 +2,7 @@
 %This assumes that the CSV file you are using has curves made up of angles
 %in it.  If your curves are parameterized x(s), y(s) curves, this file will
 %not work.  Enter the file name in the csvread's field
-[vecs,vals] = familyEigenVectors(csvread('../foodTracking.txt'));
+[vecs,vals] = familyEigenVectorsFromAngles(csvread('../foodTracking.txt'));
 
 %plot the first four in a pretty way
 %plot the first four eigenworms
