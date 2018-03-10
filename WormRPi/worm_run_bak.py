@@ -2,10 +2,12 @@
 from time import sleep
 
 #parameters
-servo_delay = 1
-activation_scale = 75.0
+delay = 3
+max_angle = 90
+swing_steps = 20
+scale = 100.0
 
-activation_array = [
+servo_array = [
 [78,-0.63,-0.65,-0.62,-0.58,-0.55,-0.51,-0.48,-0.44,-0.41,-0.37,-0.34,-0.30],
 [219,-0.63,-0.65,-0.62,-0.58,-0.55,-0.51,-0.48,-0.44,-0.41,-0.37,-0.34,-0.30],
 [375,-0.63,-0.65,-0.62,-0.58,-0.55,-0.51,-0.48,-0.44,-0.41,-0.37,-0.34,-0.30],
@@ -57,44 +59,40 @@ activation_array = [
 ]
 
 servo_list = [0, 1, 2, 3, 4, 5, 6, 7]
-servo_limit = [0, 0, 0, 0, 0, 0, 0, 0]
 servo_pos = [0, 0, 0, 0, 0, 0, 0, 0]
+servo_step = [0, 0, 0, 0, 0, 0, 0, 0]
 
-activation_array_len = len(activation_array)
-if activation_array_len == 0:
-   quit()
+if len(servo_array) == 0:
+   exit
 
 for i in servo_list:
-    limit = 0.0
-    for activation in activation_array:
-        if abs(activation[i + 1]) > limit:
-           limit = abs(activation[i + 1])
-    servo_limit[i] = int(limit * activation_scale)
-print(servo_limit)
+      servo_step[i] = int((servo_array[0][i + 1] * scale * 2.0) / swing_steps)
+      if servo_step[i] < 0:
+         servo_step[i] = -servo_step[i]
 
 #robot_servo = Servo()
 
-step = 0
-while step < activation_array_len:
+for step in servo_array:
     print("step=", step)
     for i in servo_list:
-        delta = 0
-        if activation_array[step][i + 1] > 0.0:
-           j = 0
-           while (step + j) < activation_array_len and activation_array[step + j][i + 1] > 0.0:
-                 j = j + 1
-           delta = int((servo_limit[i] - servo_pos[i]) / j)
+        v = 0
+        if step[i + 1] > 0.0:
+           v = servo_step[i]
+           servo_pos[i] = servo_pos[i] + v
+           if servo_pos[i] > max_angle:
+              v = v - (servo_pos[i] - max_angle)
+              servo_pos[i] = max_angle
         else:
-            if activation_array[step][i + 1] < 0.0:
-               j = 0
-               while (step + j) < activation_array_len and activation_array[step + j][i + 1] < 0.0:
-                     j = j + 1
-               delta = int((-servo_limit[i] - servo_pos[i]) / j)
-        servo_pos[i] = servo_pos[i] + delta
+            if step[i + 1] < 0.0:
+               v = -servo_step[i];
+               servo_pos[i] = servo_pos[i] + v
+               if servo_pos[i] < -max_angle:
+                  v = v + (-servo_pos[i] - max_angle)
+                  servo_pos[i] = -max_angle
         #robot_servo.set_servo ((11 - i), servo_pos[i])
-        print("servo=", (11 - i), "delta=", delta, "pos=", servo_pos[i])
-    step = step + 1
-    sleep(servo_delay)
+        print("i=", (11 - i), "v=", v, "pos=", servo_pos[i])
+    #print(servo_pos)
+    sleep(delay)
 
 
 
