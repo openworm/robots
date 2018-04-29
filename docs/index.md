@@ -5,6 +5,8 @@ layout: default
 
 # OpenWorm Crawling Robot v 0.1
 
+![Finished product image](https://guides.github.com/activities/hello-world/branching.png)
+
 ## Parts
 
 * Part 1
