@@ -1,0 +1,50 @@
+#The below 2 sections are commented, they control the default sound card to use
+#This set up is for a Pi with an I2S microphone attached using the guide
+#from adafruit at
+# https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout
+#Uncomment and the I2S will be your default card (assuming same setup)
+#but you won't get audio playback because both recording and playback will be
+#defaulted
+#TODO - Figure out how to set default for recording separately
+#To adjust use aplay -l to work out the devices you have and their card number
+#For recording devices use arecord -l
+
+#pcm.!default {
+#	type hw
+#	card 1
+#}
+
+#ctl.!default {
+#	type hw           
+#	card 1
+#}
+
+#This section makes a reference to your I2S hardware, adjust the card name
+# to what is shown in arecord -l after card x: before the name in []
+#You may have to adjust channel count also but stick with default first
+pcm.dmic_hw {
+	type hw
+	card sndrpisimplecar
+	channels 2
+	format S32_LE
+}
+
+#This is the software volume control, it links to the hardware above and after
+# saving the .asoundrc file you can type alsamixer, press F6 to select
+# your I2S mic then F4 to set the recording volume and arrow up and down
+# to adjust the volume
+# After adjusting the volume - go for 50 percent at first, you can do
+# something like 
+# arecord -D dmic_sv -c2 -r 48000 -f S32_LE -t wav -V mono -v myfile.wav
+pcm.dmic_sv {
+	type softvol
+	slave.pcm dmic_hw
+	control {
+		name "Boost Capture Volume"
+		card sndrpisimplecar
+	}
+	min_dB -3.0
+	max_dB 30.0
+}
+
+
