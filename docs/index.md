@@ -15,7 +15,7 @@ We have an explainer video [here on Youtube](https://youtu.be/6gbrbjGFhD4).
 
 ## Expected Costs
 
-This can be made for $X dollars.
+This can be made for around US$150 dollars.
 
 ## Purchased Parts
 
