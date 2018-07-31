@@ -1,8 +1,8 @@
-#from Servo import Servo
+from Servo import Servo
 from time import sleep
 
 #parameters
-servo_delay = 1
+servo_delay = .05
 activation_scale = 75.0
 
 activation_array = [
@@ -72,7 +72,7 @@ for i in servo_list:
     servo_limit[i] = int(limit * activation_scale)
 print(servo_limit)
 
-#robot_servo = Servo()
+robot_servo = Servo()
 
 step = 0
 while step < activation_array_len:
@@ -91,7 +91,7 @@ while step < activation_array_len:
                      j = j + 1
                delta = int((-servo_limit[i] - servo_pos[i]) / j)
         servo_pos[i] = servo_pos[i] + delta
-        #robot_servo.set_servo ((11 - i), servo_pos[i])
+        robot_servo.set_servo ((11 - i), servo_pos[i])
         print("servo=", (11 - i), "delta=", delta, "pos=", servo_pos[i])
     step = step + 1
     sleep(servo_delay)

@@ -1,8 +1,8 @@
-#from Servo import Servo
+from Servo import Servo
 from time import sleep
 
 #parameters
-servo_delay = 1
+servo_delay = .1
 
 angles_array = [
  [0, 28, 14, 5, 0, -1, -2, -1, -1, -2, -3, -1],
@@ -238,14 +238,14 @@ angles_array_len = len(angles_array)
 if angles_array_len == 0:
    quit()
 
-#robot = Servo()
+robot = Servo()
 
 step = 0
 while step < angles_array_len:
     print("step=", step)
     for i in servo_list:
         j = angles_array[step][i]
-        #robot.set_servo ((11 - i), j)
+        robot.set_servo ((11 - i), j)
         print("servo=", (11 - i), "pos=", j)
     step = step + 1
     sleep(servo_delay)
