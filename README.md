@@ -18,5 +18,5 @@ Folders:
 4. 3D Printing Shapefiles: Images and .stl files for printing the other components
 
 References:
-Boyle, Berri and Cohen, �Gait modulation in C. elegans: an integrated neuromechanical model�, Front. Comput. Neurosci., 2012.
+Boyle, Berri and Cohen, Netta "Gait modulation in C. elegans: an integrated neuromechanical model", Front. Comput. Neurosci., 2012.
 Eduardo J. Izquierdo and Randall D. Beer, "An Integrated Neuromechanical Model of Steering in C. elegans", ECAL15
