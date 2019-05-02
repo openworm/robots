@@ -7,9 +7,7 @@ import sys
 from time import sleep
 #import sonar
 
-# Parameters
-# ping_angle should be set such that left and right pings should provide
-# food object sensing coverage extensively yet exclusively on their respective sides.
+# Parameters.
 #angle_amplifier = 1.25
 angle_amplifier = 1.0
 servo_delay = .05
@@ -27,7 +25,7 @@ head_swing_step_restart = 5
 angles_array = []
 filename = "segment_angles.txt"
 if len(sys.argv) == 2:
-    filename = sys.argv[2]
+    filename = sys.argv[1]
 with open(filename, "r") as f:
     for line in f:
         vals = (line[:-1]).split(" ")
