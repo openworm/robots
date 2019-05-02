@@ -15,6 +15,7 @@ Folders:
 3. WormESP32: ESP32 onboard code.
 4. WormSim: C. elegans neuromuscular simulator.
 5. assembly: parts list, 3D printing .stl shape files, and assembly instructions.
+6. docs: robot description.
 
 References:
 Boyle, Berri and Cohen, "Gait modulation in C. elegans: an integrated neuromechanical model", Front. Comput. Neurosci., 2012.
