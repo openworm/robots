@@ -31,5 +31,7 @@ exec(open("worm_run_segment_angles_laser.py").read())
 5. Run with ultrasonic distance food sensor:
 exec(open("worm_run_segment_angles_sonic.py").read())
 
+The maximim number of steps can be limited by creating a file named "max_steps.txt" containing the value.
+
 Note: power cycle board if you encounter python errors after repeated runs.
 
