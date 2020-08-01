@@ -1,0 +1,12 @@
+*.pyc
+*.obj
+*.log
+*.tlog
+*.pdb
+*.ipdb
+*.idb
+.vs/
+WormSim/Model/**/*.user
+WormSim/Model/**/Release
+WormSim/Model/**/Debug
+.ipynb_checkpoints
